@@ -3,18 +3,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18 # or 20 if you want Node 20
+      nodejs: 18
     commands:
-      - echo Installing dependencies...
       - npm install
-      - npx playwright install --with-deps
-
   build:
     commands:
-      - echo Running Playwright tests...
-      - npx playwright test
-
+      - npx playwright install
+      - npm test
 artifacts:
   files:
-    - test-results/**/*
-    - playwright-report/**/*
+    - "**/*"
